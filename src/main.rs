@@ -55,7 +55,7 @@ fn pwa(encoded: &str) -> Result<Template, BadRequest<String>> {
 
     match serde_json::from_str::<Manifest>(&manifest) {
         Err(e) => Err(BadRequest(format!("Failed to parse manifest: {e}"))),
-        Ok(m) => Ok(Template::render("pwa", context! { base_url: m.start_url, manifest: manifest, name: m.name })),
+        Ok(m) => Ok(Template::render("pwa", context! { base_url: m.start_url, encoded, name: m.name })),
     }
 }
 
@@ -82,7 +82,7 @@ fn manifest(encoded: &str) -> Result<Value, BadRequest<String>> {
     match serde_json::from_str::<Value>(&manifest) {
         Err(e) => Err(BadRequest(format!("Failed to parse manifest: {e}"))),
         Ok(mut v) => {
-            v["start_url"] = json!(format!("/{manifest}?mode=standalone"));
+            v["start_url"] = json!(format!("./?mode=standalone"));
             Ok(v)
         }
     }

@@ -2,12 +2,12 @@
 <html lang="en">
     <head>
         <title>PWA For All</title>
-        <link rel="manifest" href="/{{ manifest }}/manifest.json"/>
+        <link rel="manifest" href="/{{ encoded }}/manifest.json"/>
     </head>
     <body>
         <script>
             function redirect() {
-                document.location = "{{ base_url }}"
+                document.location = "{{ base_url | safe }}"
             }
             if (window.matchMedia("(display-mode: standalone)").matches) {
                 redirect();
