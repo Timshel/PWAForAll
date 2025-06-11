@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>PWA For All</title>
+        <link rel="manifest" href="/{{ manifest }}/manifest.json"/>
+    </head>
+    <body>
+        <script>
+            function redirect() {
+                document.location = "{{ base_url }}"
+            }
+            if (window.matchMedia("(display-mode: standalone)").matches) {
+                redirect();
+            }
+        </script>
+        <p>
+            Add to the home screen should create a nice PWA, enjoy :)
+        </p>
+        <button onclick="redirect()">Redirect to {{ name }}</button>
+    </body>
+</html>

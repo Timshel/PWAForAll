@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>PWA For All</title>
+    <script>
+        function autoGrow(field) {
+          if (field.scrollHeight > field.clientHeight) {
+            field.style.height = `${field.scrollHeight}px`;
+          }
+        }
+    </script>
+</head>
+<body>
+    <h1>PWA For All</h1>
+    <form method="post">
+        <fieldset>
+            <legend>manifest.json</legend>
+<textarea name="manifest" class="no-scrollbars" rows="20" onkeyup="autoGrow(this);" style="width: 100%; border: none;">
+{
+    "name": "Jisho",
+    "start_url": "https://jisho.org",
+    "icons":
+    [
+        {
+            "src": "https://assets.jisho.org/assets/touch-icon-017b99ca4bfd11363a97f66cc4c00b1667613a05e38d08d858aa5e2a35dce055.png",
+            "type": "image/png",
+            "sizes": "512x512"
+        }
+    ],
+    "display": "standalone",
+    "theme_color": "#47DB27",
+    "background_color": "#ffffff"
+}
+</textarea>
+        </fieldset>
+
+        <input type="submit" value="Send" />
+    </form>
+</body>
+</html>

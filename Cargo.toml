@@ -1,0 +1,12 @@
+[package]
+name = "pwaforall"
+version = "0.1.0"
+edition = "2024"
+
+[features]
+default = []
+
+[dependencies]
+base64 = "0.22.1"
+rocket = { version = "0.5.1", features = ["tls", "json"], default-features = false }
+rocket_dyn_templates = { version = "0.2.0", features = ["tera"] }
